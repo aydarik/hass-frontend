@@ -8,7 +8,6 @@ import { customElement, property } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
 import { domainToName } from "../../../data/integration";
 import type { HomeAssistant } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 import type { IntegrationListItem } from "./dialog-add-integration";
 import "../../../components/ha-svg-icon";
 import "../../../components/ha-icon-next";
@@ -54,7 +53,7 @@ export class HaIntegrationListItem extends ListItemBase {
       <img
         alt=""
         loading="lazy"
-        src=${brandsUrl({
+        src=${this.hass.brandsUrl({
           domain: this.integration.domain,
           type: "icon",
           darkOptimized: this.hass.themes?.darkMode,

@@ -7,7 +7,6 @@ import "../../../components/ha-svg-icon";
 import type { IntegrationManifest } from "../../../data/integration";
 import { domainToName } from "../../../data/integration";
 import type { HomeAssistant } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 
 @customElement("ha-integration-header")
 export class HaIntegrationHeader extends LitElement {
@@ -32,7 +31,7 @@ export class HaIntegrationHeader extends LitElement {
       <div class="header">
         <img
           alt=""
-          src=${brandsUrl({
+          src=${this.hass.brandsUrl({
             domain: this.domain,
             type: "icon",
             darkOptimized: this.hass.themes?.darkMode,

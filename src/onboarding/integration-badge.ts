@@ -1,7 +1,6 @@
 import type { TemplateResult } from "lit";
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators";
-import { brandsUrl } from "../util/brands-url";
 
 @customElement("integration-badge")
 class IntegrationBadge extends LitElement {
@@ -21,7 +20,7 @@ class IntegrationBadge extends LitElement {
       <div class="icon">
         <img
           alt=""
-          src=${brandsUrl({
+          src=${this.hass.brandsUrl({
             domain: this.domain,
             type: "icon",
             darkOptimized: this.darkOptimizedIcon,

@@ -6,7 +6,6 @@ import "../../../components/ha-button";
 import "../../../components/ha-card";
 import "../../../components/ha-svg-icon";
 import type { HomeAssistant } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 
 @customElement("cloud-discover")
 export class CloudDiscover extends LitElement {
@@ -49,7 +48,7 @@ export class CloudDiscover extends LitElement {
               <div class="logos">
                 <img
                   alt="Google Assistant"
-                  src=${brandsUrl({
+                  src=${this.hass.brandsUrl({
                     domain: "google_assistant",
                     type: "icon",
                     darkOptimized: this.hass.themes?.darkMode,
@@ -59,7 +58,7 @@ export class CloudDiscover extends LitElement {
                 />
                 <img
                   alt="Amazon Alexa"
-                  src=${brandsUrl({
+                  src=${this.hass.brandsUrl({
                     domain: "alexa",
                     type: "icon",
                     darkOptimized: this.hass.themes?.darkMode,

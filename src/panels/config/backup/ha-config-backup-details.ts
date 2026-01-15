@@ -39,7 +39,6 @@ import {
 import { showConfirmationDialog } from "../../../dialogs/generic/show-dialog-box";
 import "../../../layouts/hass-subpage";
 import type { HomeAssistant } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 import "./components/ha-backup-details-restore";
 import "./components/ha-backup-details-summary";
 import { showRestoreBackupDialog } from "./dialogs/show-dialog-restore-backup";
@@ -204,7 +203,7 @@ class HaConfigBackupDetails extends LitElement {
                                       `
                                     : html`
                                         <img
-                                          .src=${brandsUrl({
+                                          .src=${this.hass.brandsUrl({
                                             domain,
                                             type: "icon",
                                             darkOptimized:

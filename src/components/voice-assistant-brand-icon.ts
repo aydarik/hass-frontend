@@ -4,7 +4,6 @@ import { LitElement, css, html } from "lit";
 import { haStyle } from "../resources/styles";
 import type { HomeAssistant } from "../types";
 import { voiceAssistants } from "../data/expose";
-import { brandsUrl } from "../util/brands-url";
 
 @customElement("voice-assistant-brand-icon")
 export class VoiceAssistantBrandicon extends LitElement {
@@ -17,7 +16,7 @@ export class VoiceAssistantBrandicon extends LitElement {
       <img
         class="logo"
         alt=${voiceAssistants[this.voiceAssistantId].name}
-        src=${brandsUrl({
+        src=${this.hass.brandsUrl({
           domain: voiceAssistants[this.voiceAssistantId].domain,
           type: "icon",
           darkOptimized: this.hass.themes?.darkMode,

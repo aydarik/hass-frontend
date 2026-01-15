@@ -20,7 +20,6 @@ import type { ItemType, RelatedResult } from "../data/search";
 import { findRelated } from "../data/search";
 import { haStyle } from "../resources/styles";
 import type { HomeAssistant } from "../types";
-import { brandsUrl } from "../util/brands-url";
 import "./ha-icon-next";
 import "./ha-list-item";
 import "./ha-state-icon";
@@ -220,7 +219,7 @@ export class HaRelatedItems extends LitElement {
                   >
                     <ha-list-item hasMeta graphic="icon">
                       <img
-                        .src=${brandsUrl({
+                        .src=${this.hass.brandsUrl({
                           domain: entry.domain,
                           type: "icon",
                           darkOptimized: this.hass.themes?.darkMode,
@@ -245,7 +244,7 @@ export class HaRelatedItems extends LitElement {
                     >
                       <ha-list-item hasMeta graphic="icon">
                         <img
-                          .src=${brandsUrl({
+                          .src=${this.hass.brandsUrl({
                             domain: integration,
                             type: "icon",
                             darkOptimized: this.hass.themes?.darkMode,

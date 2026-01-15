@@ -5,7 +5,6 @@ import { fireEvent } from "../../../common/dom/fire_event";
 import "../../../components/ha-button";
 import "../../../components/ha-svg-icon";
 import type { HomeAssistant } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 import { AssistantSetupStyles } from "../styles";
 
 @customElement("cloud-step-intro")
@@ -64,7 +63,7 @@ export class CloudStepIntro extends LitElement {
             <div class="logos">
               <img
                 alt="Google Assistant"
-                src=${brandsUrl({
+                src=${this.hass.brandsUrl({
                   domain: "google_assistant",
                   type: "icon",
                   darkOptimized: this.hass.themes?.darkMode,
@@ -74,7 +73,7 @@ export class CloudStepIntro extends LitElement {
               />
               <img
                 alt="Amazon Alexa"
-                src=${brandsUrl({
+                src=${this.hass.brandsUrl({
                   domain: "alexa",
                   type: "icon",
                   darkOptimized: this.hass.themes?.darkMode,

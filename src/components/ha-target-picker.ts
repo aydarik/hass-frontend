@@ -54,7 +54,6 @@ import {
   type FuseWeightedKey,
 } from "../resources/fuseMultiTerm";
 import type { HomeAssistant } from "../types";
-import { brandsUrl } from "../util/brands-url";
 import type { HaDevicePickerDeviceFilterFunc } from "./device/ha-device-picker";
 import "./ha-generic-picker";
 import type { PickerComboBoxItem } from "./ha-picker-combo-box";
@@ -1022,7 +1021,7 @@ export class HaTargetPicker extends SubscribeMixin(LitElement) {
                       alt=""
                       crossorigin="anonymous"
                       referrerpolicy="no-referrer"
-                      src=${brandsUrl({
+                      src=${this.hass.brandsUrl({
                         domain: (item as DevicePickerItem).domain!,
                         type: "icon",
                         darkOptimized: this.hass.themes.darkMode,

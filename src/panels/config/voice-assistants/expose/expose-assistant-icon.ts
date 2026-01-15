@@ -4,7 +4,6 @@ import { customElement, property } from "lit/decorators";
 import { styleMap } from "lit/directives/style-map";
 import { voiceAssistants } from "../../../../data/expose";
 import type { HomeAssistant } from "../../../../types";
-import { brandsUrl } from "../../../../util/brands-url";
 import "../../../../components/ha-svg-icon";
 import "../../../../components/ha-tooltip";
 
@@ -31,7 +30,7 @@ export class VoiceAssistantExposeAssistantIcon extends LitElement {
             filter: this.manual ? "grayscale(100%)" : undefined,
           })}
           alt=${voiceAssistants[this.assistant].name}
-          src=${brandsUrl({
+          src=${this.hass.brandsUrl({
             domain: voiceAssistants[this.assistant].domain,
             type: "icon",
             darkOptimized: this.hass.themes?.darkMode,

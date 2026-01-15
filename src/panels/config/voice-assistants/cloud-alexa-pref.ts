@@ -18,7 +18,6 @@ import {
   setExposeNewEntities,
 } from "../../../data/expose";
 import type { HomeAssistant } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 
 @customElement("cloud-alexa-pref")
 export class CloudAlexaPref extends LitElement {
@@ -66,7 +65,7 @@ export class CloudAlexaPref extends LitElement {
         <h1 class="card-header">
           <img
             alt=""
-            src=${brandsUrl({
+            src=${this.hass.brandsUrl({
               domain: "alexa",
               type: "icon",
               darkOptimized: this.hass.themes?.darkMode,

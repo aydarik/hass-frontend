@@ -61,7 +61,6 @@ import "../../../layouts/hass-subpage";
 import { SubscribeMixin } from "../../../mixins/subscribe-mixin";
 import { haStyle } from "../../../resources/styles";
 import type { HomeAssistant } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 import { documentationUrl } from "../../../util/documentation-url";
 import { fileDownload } from "../../../util/file_download";
 import "./ha-config-entry-row";
@@ -374,7 +373,7 @@ class HaConfigIntegrationPage extends SubscribeMixin(LitElement) {
               <div class="logo-container">
                 <img
                   alt=${domainToName(this.hass.localize, this.domain)}
-                  src=${brandsUrl({
+                  src=${this.hass.brandsUrl({
                     domain: this.domain,
                     type: "icon@2x",
                     darkOptimized: this.hass.themes?.darkMode,

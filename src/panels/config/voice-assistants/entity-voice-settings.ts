@@ -37,7 +37,6 @@ import { fetchCloudGoogleEntity } from "../../../data/google_assistant";
 import { SubscribeMixin } from "../../../mixins/subscribe-mixin";
 import { haStyle } from "../../../resources/styles";
 import type { HomeAssistant } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 import { documentationUrl } from "../../../util/documentation-url";
 import type { EntityRegistrySettings } from "../entities/entity-registry-settings";
 
@@ -215,7 +214,7 @@ export class EntityVoiceSettings extends SubscribeMixin(LitElement) {
               <ha-settings-row .threeLine=${!supported && manualConfig}>
                 <img
                   alt=""
-                  src=${brandsUrl({
+                  src=${this.hass.brandsUrl({
                     domain: voiceAssistants[key].domain,
                     type: "icon",
                     darkOptimized: this.hass.themes?.darkMode,

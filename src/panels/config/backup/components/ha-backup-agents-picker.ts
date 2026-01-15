@@ -14,7 +14,6 @@ import {
   isNetworkMountAgent,
 } from "../../../../data/backup";
 import type { HomeAssistant } from "../../../../types";
-import { brandsUrl } from "../../../../util/brands-url";
 
 @customElement("ha-backup-agents-picker")
 class HaBackupAgentsPicker extends LitElement {
@@ -63,7 +62,7 @@ class HaBackupAgentsPicker extends LitElement {
               ? html` <ha-svg-icon .path=${mdiNas} slot="start"></ha-svg-icon> `
               : html`
                   <img
-                    .src=${brandsUrl({
+                    .src=${this.hass.brandsUrl({
                       domain,
                       type: "icon",
                       darkOptimized: this.hass.themes?.darkMode,

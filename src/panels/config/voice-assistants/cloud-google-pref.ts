@@ -20,7 +20,6 @@ import {
   setExposeNewEntities,
 } from "../../../data/expose";
 import type { HomeAssistant } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 import { showSaveSuccessToast } from "../../../util/toast-saved-success";
 
 @customElement("cloud-google-pref")
@@ -72,7 +71,7 @@ export class CloudGooglePref extends LitElement {
         <h1 class="card-header">
           <img
             alt=""
-            src=${brandsUrl({
+            src=${this.hass.brandsUrl({
               domain: "google_assistant",
               type: "icon",
               darkOptimized: this.hass.themes?.darkMode,

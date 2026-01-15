@@ -39,7 +39,6 @@ import {
 } from "../../data/target";
 import { buttonLinkStyle } from "../../resources/styles";
 import type { HomeAssistant } from "../../types";
-import { brandsUrl } from "../../util/brands-url";
 import type { HaDevicePickerDeviceFilterFunc } from "../device/ha-device-picker";
 import { floorDefaultIconPath } from "../ha-floor-icon";
 import "../ha-icon-button";
@@ -577,7 +576,7 @@ export class HaTargetPickerItemRow extends LitElement {
     try {
       const data = await getConfigEntry(this.hass, configEntryId);
       const domain = data.config_entry.domain;
-      this._iconImg = brandsUrl({
+      this._iconImg = this.hass.brandsUrl({
         domain: domain,
         type: "icon",
         darkOptimized: this.hass.themes?.darkMode,

@@ -43,7 +43,6 @@ import {
 } from "../../../../dialogs/generic/show-dialog-box";
 import { haStyle } from "../../../../resources/styles";
 import type { HomeAssistant } from "../../../../types";
-import { brandsUrl } from "../../../../util/brands-url";
 import { documentationUrl } from "../../../../util/documentation-url";
 import {
   showEnergySettingsGridFlowFromDialog,
@@ -291,7 +290,7 @@ export class EnergyGridSettings extends LitElement {
                   alt=""
                   crossorigin="anonymous"
                   referrerpolicy="no-referrer"
-                  src=${brandsUrl({
+                  src=${this.hass.brandsUrl({
                     domain: "co2signal",
                     type: "icon",
                     darkOptimized: this.hass.themes?.darkMode,
@@ -317,7 +316,7 @@ export class EnergyGridSettings extends LitElement {
                     alt=""
                     crossorigin="anonymous"
                     referrerpolicy="no-referrer"
-                    src=${brandsUrl({
+                    src=${this.hass.brandsUrl({
                       domain: "co2signal",
                       type: "icon",
                       darkOptimized: this.hass.themes?.darkMode,

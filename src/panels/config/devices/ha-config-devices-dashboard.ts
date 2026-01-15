@@ -91,7 +91,6 @@ import type { HaTabsSubpageDataTable } from "../../../layouts/hass-tabs-subpage-
 import { SubscribeMixin } from "../../../mixins/subscribe-mixin";
 import { haStyle } from "../../../resources/styles";
 import type { HomeAssistant, Route } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 import { showAreaRegistryDetailDialog } from "../areas/show-dialog-area-registry-detail";
 import { configSections } from "../ha-panel-config";
 import "../integrations/ha-integration-overflow-menu";
@@ -529,7 +528,7 @@ export class HaConfigDeviceDashboard extends SubscribeMixin(LitElement) {
                 alt=""
                 crossorigin="anonymous"
                 referrerpolicy="no-referrer"
-                src=${brandsUrl({
+                src=${this.hass.brandsUrl({
                   domain: device.domains[0],
                   type: "icon",
                   darkOptimized: this.hass.themes?.darkMode,

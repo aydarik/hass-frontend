@@ -65,7 +65,6 @@ import type { HaTabsSubpageDataTable } from "../../../layouts/hass-tabs-subpage-
 import { SubscribeMixin } from "../../../mixins/subscribe-mixin";
 import { haStyle } from "../../../resources/styles";
 import type { HomeAssistant, Route } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 import { bytesToString } from "../../../util/bytes-to-string";
 import { showGenerateBackupDialog } from "./dialogs/show-dialog-generate-backup";
 import { showNewBackupDialog } from "./dialogs/show-dialog-new-backup";
@@ -223,7 +222,7 @@ class HaConfigBackupBackups extends SubscribeMixin(LitElement) {
                 return html`
                   <img
                     title=${name}
-                    .src=${brandsUrl({
+                    .src=${this.hass.brandsUrl({
                       domain,
                       type: "icon",
                       darkOptimized: this.hass.themes?.darkMode,

@@ -36,6 +36,8 @@ import { fetchWithAuth } from "../util/fetch-with-auth";
 import { getState } from "../util/ha-pref-storage";
 import hassCallApi, { hassCallApiRaw } from "../util/hass-call-api";
 import type { HassBaseEl } from "./hass-base-mixin";
+import type { BrandsOptions } from "../util/brands-url";
+import { brandsUrl } from "../util/brands-url";
 
 export const connectionMixin = <T extends Constructor<HassBaseEl>>(
   superClass: T
@@ -85,6 +87,8 @@ export const connectionMixin = <T extends Constructor<HassBaseEl>>(
         enableShortcuts: true,
         moreInfoEntityId: null,
         hassUrl: (path = "") => new URL(path, auth.data.hassUrl).toString(),
+        brandsUrl: (options: BrandsOptions) =>
+          brandsUrl(options, auth.data.hassUrl),
         callService: async (
           domain,
           service,
