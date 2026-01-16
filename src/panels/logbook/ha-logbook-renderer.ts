@@ -30,7 +30,6 @@ import {
 } from "../../resources/styles";
 import { loadVirtualizer } from "../../resources/virtualizer";
 import type { HomeAssistant } from "../../types";
-import { brandsUrl } from "../../util/brands-url";
 import { domainToName } from "../../data/integration";
 
 declare global {
@@ -157,7 +156,7 @@ class HaLogbookRenderer extends LitElement {
       !item.state &&
       domain &&
       isComponentLoaded(this.hass, domain)
-        ? brandsUrl({
+        ? this.hass.brandsUrl({
             domain: domain!,
             type: "icon",
             darkOptimized: this.hass.themes?.darkMode,

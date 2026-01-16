@@ -35,7 +35,6 @@ import "./components/config/ha-backup-config-encryption-key";
 import "./components/config/ha-backup-config-schedule";
 import type { BackupConfigSchedule } from "./components/config/ha-backup-config-schedule";
 import { showLocalBackupLocationDialog } from "./dialogs/show-dialog-local-backup-location";
-import { brandsUrl } from "../../../util/brands-url";
 
 @customElement("ha-config-backup-settings")
 class HaConfigBackupSettings extends LitElement {
@@ -249,7 +248,7 @@ class HaConfigBackupSettings extends LitElement {
               ? html`<ha-card class="cloud-info">
                   <div class="cloud-header">
                     <img
-                      .src=${brandsUrl({
+                      .src=${this.hass.brandsUrl({
                         domain: "cloud",
                         type: "icon",
                         darkOptimized: this.hass.themes?.darkMode,

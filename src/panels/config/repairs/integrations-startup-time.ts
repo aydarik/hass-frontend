@@ -15,7 +15,6 @@ import {
   fetchIntegrationSetups,
 } from "../../../data/integration";
 import type { HomeAssistant } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 import { documentationUrl } from "../../../util/documentation-url";
 
 @customElement("integrations-startup-time")
@@ -55,7 +54,7 @@ class IntegrationsStartupTime extends LitElement {
               <img
                 alt=""
                 loading="lazy"
-                src=${brandsUrl({
+                src=${this.hass.brandsUrl({
                   domain: setup.domain,
                   type: "icon",
                   darkOptimized: this.hass.themes?.darkMode,

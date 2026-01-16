@@ -23,7 +23,6 @@ import {
 } from "../../data/entity/entity_registry";
 import { domainToName } from "../../data/integration";
 import type { HomeAssistant } from "../../types";
-import { brandsUrl } from "../../util/brands-url";
 import { showAlertDialog } from "../generic/show-dialog-box";
 import { showVoiceAssistantSetupDialog } from "../voice-assistant-setup/show-voice-assistant-setup-dialog";
 import type { FlowConfig } from "./show-dialog-data-entry-flow";
@@ -140,7 +139,7 @@ class StepFlowCreateEntry extends LitElement {
                                   this.hass.localize,
                                   domains[device.primary_config_entry]
                                 )}
-                                src=${brandsUrl({
+                                src=${this.hass.brandsUrl({
                                   domain: domains[device.primary_config_entry],
                                   type: "icon",
                                   darkOptimized: this.hass.themes?.darkMode,

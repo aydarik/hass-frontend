@@ -12,8 +12,8 @@ export interface HardwareBrandsOptions {
   darkOptimized?: boolean;
 }
 
-export const brandsUrl = (options: BrandsOptions): string =>
-  `https://brands.home-assistant.io/${options.brand ? "brands/" : ""}_/${options.domain}/${
+export const brandsUrl = (options: BrandsOptions, hassUrl: string): string =>
+  `${options.brand ? "https://brands.home-assistant.io" : hassUrl}/brands/${options.domain}/${
     options.darkOptimized ? "dark_" : ""
   }${options.type}.png`;
 
@@ -25,4 +25,4 @@ export const hardwareBrandsUrl = (options: HardwareBrandsOptions): string =>
 export const extractDomainFromBrandUrl = (url: string) => url.split("/")[4];
 
 export const isBrandUrl = (thumbnail: string | ""): boolean =>
-  thumbnail.startsWith("https://brands.home-assistant.io/");
+  thumbnail.startsWith("/brands/");

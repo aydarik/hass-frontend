@@ -22,7 +22,6 @@ import type { Brand, Integration } from "../../../data/integrations";
 import { showConfigFlowDialog } from "../../../dialogs/config-flow/show-dialog-config-flow";
 import { haStyle } from "../../../resources/styles";
 import type { HomeAssistant } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 import "./ha-integration-list-item";
 import { showYamlIntegrationDialog } from "./show-add-integration-dialog";
 
@@ -57,7 +56,7 @@ class HaDomainIntegrations extends LitElement {
                     alt=""
                     slot="graphic"
                     loading="lazy"
-                    src=${brandsUrl({
+                    src=${this.hass.brandsUrl({
                       domain: flow.handler,
                       type: "icon",
                       darkOptimized: this.hass.themes?.darkMode,
@@ -102,7 +101,7 @@ class HaDomainIntegrations extends LitElement {
                   slot="graphic"
                   loading="lazy"
                   alt=""
-                  src=${brandsUrl({
+                  src=${this.hass.brandsUrl({
                     domain,
                     type: "icon",
                     darkOptimized: this.hass.themes?.darkMode,
@@ -165,7 +164,7 @@ class HaDomainIntegrations extends LitElement {
               slot="graphic"
               loading="lazy"
               alt=""
-              src=${brandsUrl({
+              src=${this.hass.brandsUrl({
                 domain: this.domain,
                 type: "icon",
                 darkOptimized: this.hass.themes?.darkMode,

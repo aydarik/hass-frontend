@@ -20,7 +20,6 @@ import type { Supervisor } from "../../../../src/data/supervisor/supervisor";
 import { mdiHomeAssistant } from "../../../../src/resources/home-assistant-logo-svg";
 import { haStyle } from "../../../../src/resources/styles";
 import type { HomeAssistant } from "../../../../src/types";
-import { brandsUrl } from "../../../../src/util/brands-url";
 import type { SystemManagedDialogParams } from "./show-dialog-system-managed";
 
 @customElement("dialog-system-managed")
@@ -107,7 +106,7 @@ class HassioSystemManagedDialog extends LitElement {
                       slot="start"
                       class="integration-icon"
                       alt=${this._configEntry.title}
-                      src=${brandsUrl({
+                      src=${this.hass.brandsUrl({
                         domain: this._configEntry.domain,
                         type: "icon",
                         darkOptimized: this.hass.themes?.darkMode,

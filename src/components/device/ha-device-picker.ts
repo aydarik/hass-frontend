@@ -15,7 +15,6 @@ import {
 } from "../../data/device/device_picker";
 import type { DeviceRegistryEntry } from "../../data/device/device_registry";
 import type { HomeAssistant } from "../../types";
-import { brandsUrl } from "../../util/brands-url";
 import "../ha-generic-picker";
 import type { HaGenericPicker } from "../ha-generic-picker";
 import type { HaEntityPickerEntityFilterFunc } from "../../data/entity/entity";
@@ -173,7 +172,7 @@ export class HaDevicePicker extends LitElement {
               alt=""
               crossorigin="anonymous"
               referrerpolicy="no-referrer"
-              src=${brandsUrl({
+              src=${this.hass.brandsUrl({
                 domain: configEntry.domain,
                 type: "icon",
                 darkOptimized: this.hass.themes?.darkMode,
@@ -195,7 +194,7 @@ export class HaDevicePicker extends LitElement {
               alt=""
               crossorigin="anonymous"
               referrerpolicy="no-referrer"
-              src=${brandsUrl({
+              src=${this.hass.brandsUrl({
                 domain: item.domain,
                 type: "icon",
                 darkOptimized: this.hass.themes.darkMode,

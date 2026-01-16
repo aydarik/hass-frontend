@@ -13,7 +13,7 @@ import {
 } from "../../data/media-player";
 import type { MediaSelector, MediaSelectorValue } from "../../data/selector";
 import type { HomeAssistant } from "../../types";
-import { brandsUrl, extractDomainFromBrandUrl } from "../../util/brands-url";
+import { extractDomainFromBrandUrl } from "../../util/brands-url";
 import "../ha-alert";
 import "../ha-form/ha-form";
 import type { SchemaUnion } from "../ha-form/types";
@@ -84,7 +84,7 @@ export class HaMediaSelector extends LitElement {
       ) {
         // The backend is not aware of the theme used by the users,
         // so we rewrite the URL to show a proper icon
-        this._thumbnailUrl = brandsUrl({
+        this._thumbnailUrl = this.hass.brandsUrl({
           domain: extractDomainFromBrandUrl(thumbnail),
           type: "icon",
           darkOptimized: this.hass.themes?.darkMode,

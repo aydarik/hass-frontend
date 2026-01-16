@@ -28,6 +28,7 @@ import type {
 } from "./data/translation";
 import type { Themes } from "./data/ws-themes";
 import type { ExternalMessaging } from "./external_app/external_messaging";
+import type { BrandsOptions } from "./util/brands-url";
 
 declare global {
   /* eslint-disable @typescript-eslint/naming-convention */
@@ -257,6 +258,7 @@ export interface HomeAssistant {
   userData?: CoreFrontendUserData;
   systemData?: CoreFrontendSystemData;
   hassUrl(path?): string;
+  brandsUrl(options: BrandsOptions): string;
   callService<T = any>(
     domain: ServiceCallRequest["domain"],
     service: ServiceCallRequest["service"],

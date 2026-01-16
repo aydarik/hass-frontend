@@ -80,7 +80,6 @@ import "../../../layouts/hass-error-screen";
 import "../../../layouts/hass-subpage";
 import { haStyle } from "../../../resources/styles";
 import type { HomeAssistant } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 import { fileDownload } from "../../../util/file_download";
 import "../../logbook/ha-logbook";
 import "./device-detail/ha-device-entities-card";
@@ -355,7 +354,7 @@ export class HaConfigDevicePage extends LitElement {
             <img
               slot="graphic"
               alt=${domainToName(this.hass.localize, integration.domain)}
-              src=${brandsUrl({
+              src=${this.hass.brandsUrl({
                 domain: integration.domain,
                 type: "icon",
                 darkOptimized: this.hass.themes?.darkMode,
@@ -754,7 +753,7 @@ export class HaConfigDevicePage extends LitElement {
                       this.hass.localize,
                       integrations[0].domain
                     )}
-                    src=${brandsUrl({
+                    src=${this.hass.brandsUrl({
                       domain: integrations[0].domain,
                       type: "logo",
                       darkOptimized: this.hass.themes?.darkMode,

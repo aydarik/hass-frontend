@@ -7,7 +7,6 @@ import {
   FALLBACK_DOMAIN_ICONS,
 } from "../data/icons";
 import type { HomeAssistant } from "../types";
-import { brandsUrl } from "../util/brands-url";
 import "./ha-icon";
 
 @customElement("ha-domain-icon")
@@ -61,7 +60,7 @@ export class HaDomainIcon extends LitElement {
       `;
     }
     if (this.brandFallback) {
-      const image = brandsUrl({
+      const image = this.hass.brandsUrl({
         domain: this.domain!,
         type: "icon",
         darkOptimized: this.hass.themes?.darkMode,

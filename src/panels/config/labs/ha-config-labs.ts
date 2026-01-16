@@ -14,7 +14,6 @@ import type { LabPreviewFeature } from "../../../data/labs";
 import { showConfirmationDialog } from "../../../dialogs/generic/show-dialog-box";
 import type { HomeAssistant } from "../../../types";
 import { SubscribeMixin } from "../../../mixins/subscribe-mixin";
-import { brandsUrl } from "../../../util/brands-url";
 import { showToast } from "../../../util/toast";
 import { documentationUrl } from "../../../util/documentation-url";
 import { haStyle } from "../../../resources/styles";
@@ -200,7 +199,7 @@ class HaConfigLabs extends SubscribeMixin(LitElement) {
           <div class="card-header">
             <img
               alt=""
-              src=${brandsUrl({
+              src=${this.hass.brandsUrl({
                 domain: preview_feature.domain,
                 type: "icon",
                 darkOptimized: this.hass.themes?.darkMode,

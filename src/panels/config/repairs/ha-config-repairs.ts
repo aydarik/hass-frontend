@@ -11,7 +11,6 @@ import {
 } from "../../../data/repairs";
 import { showConfigFlowDialog } from "../../../dialogs/config-flow/show-dialog-config-flow";
 import type { HomeAssistant } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 import { fixStatisticsIssue } from "../../developer-tools/statistics/fix-statistics";
 import { showRepairsFlowDialog } from "./show-dialog-repair-flow";
 import { showRepairsIssueDialog } from "./show-repair-issue-dialog";
@@ -72,7 +71,7 @@ class HaConfigRepairs extends LitElement {
                 slot="start"
                 alt=${domainName}
                 loading="lazy"
-                src=${brandsUrl({
+                src=${this.hass.brandsUrl({
                   domain: issue.issue_domain || issue.domain,
                   type: "icon",
                   darkOptimized: this.hass.themes?.darkMode,

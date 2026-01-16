@@ -13,7 +13,6 @@ import type { MatterCommissioningParameters } from "../../../../../data/matter";
 import { openMatterCommissioningWindow } from "../../../../../data/matter";
 import { haStyleDialog } from "../../../../../resources/styles";
 import type { HomeAssistant } from "../../../../../types";
-import { brandsUrl } from "../../../../../util/brands-url";
 import type { MatterOpenCommissioningWindowDialogParams } from "./show-dialog-matter-open-commissioning-window";
 
 @customElement("dialog-matter-open-commissioning-window")
@@ -65,7 +64,7 @@ class DialogMatterOpenCommissioningWindow extends LitElement {
                     crossorigin="anonymous"
                     referrerpolicy="no-referrer"
                     alt=${domainToName(this.hass.localize, "matter")}
-                    src=${brandsUrl({
+                    src=${this.hass.brandsUrl({
                       domain: "matter",
                       type: "logo",
                       darkOptimized: this.hass.themes?.darkMode,

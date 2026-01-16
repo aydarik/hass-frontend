@@ -8,7 +8,6 @@ import {
 import type { HomeAssistant } from "../../../types";
 import "./ha-integration-header";
 import "../../../components/ha-card";
-import { brandsUrl } from "../../../util/brands-url";
 import { haStyle } from "../../../resources/styles";
 
 @customElement("ha-integration-action-card")
@@ -31,7 +30,7 @@ export class HaIntegrationActionCard extends LitElement {
         <div class="card-content">
           <img
             alt=""
-            src=${brandsUrl({
+            src=${this.hass.brandsUrl({
               domain: this.domain,
               type: "icon",
               darkOptimized: this.hass.themes?.darkMode,

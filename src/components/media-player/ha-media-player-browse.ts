@@ -39,11 +39,7 @@ import { showAlertDialog } from "../../dialogs/generic/show-dialog-box";
 import { haStyle } from "../../resources/styles";
 import { loadVirtualizer } from "../../resources/virtualizer";
 import type { HomeAssistant } from "../../types";
-import {
-  brandsUrl,
-  extractDomainFromBrandUrl,
-  isBrandUrl,
-} from "../../util/brands-url";
+import { extractDomainFromBrandUrl, isBrandUrl } from "../../util/brands-url";
 import { documentationUrl } from "../../util/documentation-url";
 import "../entity/ha-entity-picker";
 import "../ha-alert";
@@ -790,7 +786,7 @@ export class HaMediaPlayerBrowse extends LitElement {
     if (isBrandUrl(thumbnailUrl)) {
       // The backend is not aware of the theme used by the users,
       // so we rewrite the URL to show a proper icon
-      thumbnailUrl = brandsUrl({
+      thumbnailUrl = this.hass.brandsUrl({
         domain: extractDomainFromBrandUrl(thumbnailUrl),
         type: "icon",
         darkOptimized: this.hass.themes?.darkMode,

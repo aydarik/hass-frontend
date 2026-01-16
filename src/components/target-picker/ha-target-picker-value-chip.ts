@@ -26,7 +26,6 @@ import { domainToName } from "../../data/integration";
 import type { LabelRegistryEntry } from "../../data/label/label_registry";
 import type { TargetType } from "../../data/target";
 import type { HomeAssistant } from "../../types";
-import { brandsUrl } from "../../util/brands-url";
 import { floorDefaultIconPath } from "../ha-floor-icon";
 import "../ha-icon";
 import "../ha-icon-button";
@@ -203,7 +202,7 @@ export class HaTargetPickerValueChip extends LitElement {
     try {
       const data = await getConfigEntry(this.hass, configEntryId);
       const domain = data.config_entry.domain;
-      this._iconImg = brandsUrl({
+      this._iconImg = this.hass.brandsUrl({
         domain: domain,
         type: "icon",
         darkOptimized: this.hass.themes?.darkMode,

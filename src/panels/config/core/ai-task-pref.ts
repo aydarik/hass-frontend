@@ -15,7 +15,6 @@ import {
   type AITaskPreferences,
 } from "../../../data/ai_task";
 import type { HomeAssistant } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 import { documentationUrl } from "../../../util/documentation-url";
 import { computeDomain } from "../../../common/entity/compute_domain";
 import { supportsFeature } from "../../../common/entity/supports-feature";
@@ -55,7 +54,7 @@ export class AITaskPref extends LitElement {
         <h1 class="card-header">
           <img
             alt=""
-            src=${brandsUrl({
+            src=${this.hass.brandsUrl({
               domain: "ai_task",
               type: "icon",
               darkOptimized: this.hass.themes?.darkMode,

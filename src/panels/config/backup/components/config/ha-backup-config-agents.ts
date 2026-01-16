@@ -23,7 +23,6 @@ import {
 } from "../../../../../data/backup";
 import type { CloudStatus } from "../../../../../data/cloud";
 import type { HomeAssistant } from "../../../../../types";
-import { brandsUrl } from "../../../../../util/brands-url";
 
 const DEFAULT_AGENTS = [];
 
@@ -149,7 +148,7 @@ class HaBackupConfigAgents extends LitElement {
 
     return html`
       <img
-        .src=${brandsUrl({
+        .src=${this.hass.brandsUrl({
           domain,
           type: "icon",
           darkOptimized: this.hass.themes?.darkMode,

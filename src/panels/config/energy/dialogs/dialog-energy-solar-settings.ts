@@ -24,7 +24,6 @@ import { showConfigFlowDialog } from "../../../../dialogs/config-flow/show-dialo
 import type { HassDialog } from "../../../../dialogs/make-dialog-manager";
 import { haStyle, haStyleDialog } from "../../../../resources/styles";
 import type { HomeAssistant } from "../../../../types";
-import { brandsUrl } from "../../../../util/brands-url";
 import type { EnergySettingsSolarDialogParams } from "./show-dialogs-energy";
 
 const energyUnitClasses = ["energy"];
@@ -184,7 +183,7 @@ export class DialogEnergySolarSettings
                         crossorigin="anonymous"
                         referrerpolicy="no-referrer"
                         style="height: 24px; margin-right: 16px; margin-inline-end: 16px; margin-inline-start: initial;"
-                        src=${brandsUrl({
+                        src=${this.hass.brandsUrl({
                           domain: entry.domain,
                           type: "icon",
                           darkOptimized: this.hass.themes?.darkMode,

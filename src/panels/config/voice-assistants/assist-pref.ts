@@ -46,7 +46,6 @@ import {
 } from "../../../dialogs/generic/show-dialog-box";
 import { showVoiceCommandDialog } from "../../../dialogs/voice-command-dialog/show-ha-voice-command-dialog";
 import type { HomeAssistant } from "../../../types";
-import { brandsUrl } from "../../../util/brands-url";
 import { documentationUrl } from "../../../util/documentation-url";
 import { showVoiceAssistantPipelineDetailDialog } from "./show-dialog-voice-assistant-pipeline-detail";
 
@@ -105,7 +104,7 @@ export class AssistPref extends LitElement {
         <h1 class="card-header">
           <img
             alt=""
-            src=${brandsUrl({
+            src=${this.hass.brandsUrl({
               domain: "assist_pipeline",
               type: "icon",
               darkOptimized: this.hass.themes?.darkMode,

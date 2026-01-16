@@ -64,7 +64,6 @@ import {
   type SingleHassServiceTarget,
 } from "../../../../data/target";
 import type { HomeAssistant } from "../../../../types";
-import { brandsUrl } from "../../../../util/brands-url";
 
 interface Level1Entries {
   open: boolean;
@@ -769,7 +768,7 @@ export default class HaAutomationAddFromTarget extends LitElement {
         alt=""
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
-        src=${brandsUrl({
+        src=${this.hass.brandsUrl({
           domain,
           type: "icon",
           darkOptimized: this.hass.themes?.darkMode,
